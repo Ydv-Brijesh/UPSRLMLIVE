@@ -697,7 +697,7 @@
                                 <div class="col-md-12">
                                     <div class="production_rep">
                                         <h6>RECIPE REPORT</h6>
-
+                                        <div id="recipe-chart"></div>
                                     </div>
                                 </div>
                             </div>
@@ -1145,7 +1145,7 @@
                 },
                 legend: {
                     position: 'top',
-                    alignment: 'start',
+                    alignment: 'end',
                     textStyle: {
                         fontSize: 12
                     }
@@ -1227,17 +1227,17 @@
             barChart.draw(barData, barOptions);
         }
     </script>
-
+    
 
     <script>
         $(document).ready(function () {
-            $('.item').click(function () {
-                $('.item').removeClass("kkk");
-                $(this).addClass("kkk");
+                $('.item').click(function () {
+                    $('.item').removeClass("kkk");
+                    $(this).addClass("kkk");
+                });
             });
-        });
     </script>
-
+ 
     <!-- ........................brijesh end............................... -->
 
 </body>
