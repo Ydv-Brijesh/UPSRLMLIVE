@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>UPSRLM</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="https://upsrlm.uplive.in/images/favicon.png">
+    <link href="https://upsrlm.uplive.in/vendor/owl-carousel/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="https://upsrlm.uplive.in/vendor/owl-carousel/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="https://upsrlm.uplive.in/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet" />
+    <link href="https://upsrlm.uplive.in/css/style.css" rel="stylesheet" />
+    <link href="/Admin/assets/js/sweetalert/js/sweet-alert.css" rel="stylesheet" />
+    <link href="/Admin/assets/js/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="/DataTables/datatables.css" rel="stylesheet" />
+    <link href="/DataTables/datatables.min.css" rel="stylesheet" />
+    <link href="/DATEPICKER/datepick.css" rel="stylesheet" />
+    <link href="/Admin/assets/Select2/css/select2.css" rel="stylesheet" />
+    <link href="/Admin/assets/Select2/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- ................................................... -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+</head>
+
+<body>
+    <style>
+        .table,
+        .table thead th,
+        .table tbody tr td {
+            border-color: #020101;
+            color: black;
+        }
+
+        .table tbody tr td {
+            font-family: inherit;
+        }
+
+        .header_menu_cus h4 {
+            position: relative;
+        }
+
+        .header_menu_cus h4:last-child:after {
+            display: none;
+        }
+
+        .header_menu_cus h4:after {
+            position: absolute;
+            content: '';
+            background: #b7b7b7;
+            height: 18px;
+            width: 1px;
+            top: 2px;
+            right: -24px;
+        }
+    </style>
+    <div id="loader" style="display:none" align="center">
+
+        <div id="processMessage">
+            <span>Please Wait...</span><img alt="Loading" src="/images/please_wait.gif" />
+        </div>
+    </div>
+    <!--*******************
+            Preloader start
+        ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+            Preloader end
+        ********************-->
+    <!--**********************************
+            Main wrapper start
+        ***********************************-->
+    <div id="main-wrapper">
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a class="brand-logo"><img class="logo-abbr" src="https://upsrlm.uplive.in/images/logo.png" alt=""> <img
+                    class="logo-compact" src="./images/logo-text.png" alt=""> <img class="brand-title"
+                    src="./images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger"><span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left ml-5 header_menu_cus">
+                            <h6>Welcome : State Mission Manager (ST)&nbsp; -&nbsp; </h6>
+
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown"> <i
+                                        class="mdi mdi-account"></i> </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="/Account/LogOut" class="dropdown-item"> <i class="icon-key"></i> <span
+                                            class="ml-2">Sign Out </span> </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="/Admin/Dashboard"><i class="ti-home"></i><span>Dashboard</span></a></li>
+                    <li class="mm-active">
+                        <a href="#" class="has-arrow has-ul" aria-expanded="true"><i class="fa fa-book"></i><span
+                                class="nav-text">Reports</span></a>
+                        <ul class="hidden-ul">
+                            <li><a href="/Reports/THRPlantReportSMLevel"><i class="icon icon-chart-bar-33"></i> THR
+                                    Plant Report</a></li>
+                            <li><a href="/Masters/HRReports"><i class="icon icon-chart-bar-33"></i> HR Report</a></li>
+                            <li><a href="/Masters/VehicleReports"><i class="icon icon-chart-bar-33"></i> Vehicle
+                                    Report</a></li>
+                            <li><a href="/DI/DIUploadReport"><i class="icon icon-chart-bar-33"></i> DI Upload Report</a>
+                            </li>
+                            <li><a href="/Procurement/RawMaterialTotalQtyWithTotalProductionMISReport"><i
+                                        class="icon icon-chart-bar-33"></i> Procurement Report</a></li>
+                            <li><a href="/Masters/SupplierReports"><i class="icon icon-chart-bar-33"></i> Supplier
+                                    Report</a></li>
+                            <li><a href="/Production/ProductionMISReportSMLevel"><i class="icon icon-chart-bar-33"></i>
+                                    Production Report</a></li>
+                            <li><a href="/Reports/RecipeReport"><i class="icon icon-chart-bar-33"></i> Recipe Report</a>
+                            </li>
+                            <li><a href="/Masters/NABLReports"><i class="icon icon-chart-bar-33"></i> NABL Report</a>
+                            </li>
+                            <li><a href="/Masters/DistributionReportSMLevel"><i class="icon icon-chart-bar-33"></i>
+                                    Delivery Report</a></li>
+                            <li><a href="/Bill/BillSMReport"><i class="icon icon-chart-bar-33"></i> Bill Report</a></li>
+                        </ul>
+                    </li>
+
+
+
+
+                </ul>
+
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content">
+            <!-- row -->
+            <div class="container-fluid">
+                <div class="page-header page-header-default">
+                    <div class="page-header-content">
+                        <div class="page-title">
+                            <h4><a href="/Admin/Dashboard"><i class="icon-arrow-left52 position-left"></i> <span
+                                        class="text-semibold">Dashboard</span></a> </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="content-body">
+
+                        <!-- ................brijesh code start........................ -->
+                        <section class="dashboard_top">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h3>Dashboard</h3>
+                                </div>
+                                <div class="col-lg-3">
+                                    <select name="cars" id="cars" class="form-control">
+                                        <option value="volvo">Select District</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="opel">Opel</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <select name="cars" id="cars" class="form-control">
+                                        <option value="volvo">Select THR</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="opel">Opel</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="das-first">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-12">
+                                    <div class="box1">
+                                        <div>
+                                            <img src="img/ac-unit.png" alt="ac-unit">
+                                        </div>
+                                        <label>THR UNITS</label>
+                                        <h1>37</h1>
+                                        <label>BLOCKES MAPPED</label>
+                                        <h1>88</h1>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-sm-12">
+                                    <div class="box2">
+                                        <div>
+                                            <img src="img/briefcase.png" alt="briefcase">
+                                        </div>
+                                        <label>PLANT EMPLOYEE (TOTAL)</label>
+                                        <h1>288</h1>
+                                        <div class="inner_box">
+                                            <div>
+                                                <label>GENERAL</label>
+                                                <h1>159</h1>
+                                            </div>
+                                            <div>
+                                                <label>OBC</label>
+                                                <h1>68</h1>
+                                            </div>
+                                            <div>
+                                                <label>SC</label>
+                                                <h1>61</h1>
+                                            </div>
+                                            <div>
+                                                <label>ST</label>
+                                                <h1>0</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12">
+                                    <div class="box3">
+                                        <div class="box_veh">
+                                            <h6> <img src="img/car.png" alt="car"> VEHICLE</h6>
+                                            <span class="badge badge-light">34</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <table>
+
+                                            <tr>
+                                                <td style="width:6%;">1</td>
+                                                <td>Average Capacity</td>
+                                                <td class="text-bold">82,220.83</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;">2</td>
+                                                <td>Average Charge (Rs)</td>
+                                                <td class="text-bold">4,69,262.59</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;">3</td>
+                                                <td>Average Rate</td>
+                                                <td class="text-bold">109.59</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;">4</td>
+                                                <td>Average THR</td>
+                                                <td class="text-bold">000</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;">5</td>
+                                                <td>Average Capacity</td>
+                                                <td class="text-bold">000</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="gram_panch">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="gram_box">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="gram_inner_box">
+                                                    <div>
+                                                        <img src="./img/warehouse.png" alt="warehouse">
+                                                    </div>
+                                                    <h3 for="">TOTAL GRAM PANCHAYAT</h3>
+                                                    <h1>6,009</h1>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="gram_inner_box">
+                                                    <div>
+                                                        <img src="img/house-damage.png" alt="house-damage">
+                                                    </div>
+                                                    <h3 for="">ANGANWADI</h3>
+                                                    <h1>22,911</h1>
+                                                    <h2></h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="beneficiary">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="box3">
+                                        <div class="box_veh">
+                                            <h6> <img src="img/table-head.png" alt="table-head"> Total Beneficiary</h6>
+                                            <span class="badge badge-light">21,35,438</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <table>
+
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/li-1.png" alt="li-1"></td>
+                                                <td>6M to 3Y</td>
+                                                <td class="text-bold">10,14,443</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/li-2.png" alt="li-2"></td>
+                                                <td>3Y to 6Y</td>
+                                                <td class="text-bold">6,18,542</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/li-3.png" alt="li-3"></td>
+                                                <td>PW & LW</td>
+                                                <td class="text-bold">4,60,189</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/li-4.png" alt="li-4"></td>
+                                                <td>AD GIRLS</td>
+                                                <td class="text-bold">57,89</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/li-5.png" alt="li-5"></td>
+                                                <td>SUW Children</td>
+                                                <td class="text-bold">36,475</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="beneficiary_box2">
+                                        <div class="beneficiary_sub_box">
+                                            <label for="">SHG MEMBER (SHIFT 1)</label>
+                                            <h1>6,009</h1>
+                                        </div>
+                                        <div class="beneficiary_line"></div>
+                                        <div class="beneficiary_sub_box">
+                                            <label for="">SHG MEMBER (SHIFT 2)</label>
+                                            <h1>614</h1>
+                                        </div>
+                                    </div>
+                                    <div class="beneficiary_inner_box2">
+                                        <h5>TOTAL SALARY</h5>
+                                        <h2 style="font-size: 39px;">0,00,000.00</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="map_sec">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                                                href="#nav-home" role="tab" aria-controls="nav-home"
+                                                aria-selected="true"> <img src="img/red-map-marked-alt.png"
+                                                    alt="map-marked-alt-1"> Map View</a>
+                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                                                href="#nav-profile" role="tab" aria-controls="nav-profile"
+                                                aria-selected="false"><img src="img/list-alt.png" alt="list-alt"> List
+                                                View</a>
+                                        </div>
+                                    </nav>
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                            aria-labelledby="nav-home-tab">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <iframe
+                                                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d161103.24427727528!2d80.85813355445508!3d26.842738694454773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1660900389827!5m2!1sen!2sin"
+                                                        width="800" height="450" style="border:0;" allowfullscreen=""
+                                                        loading="lazy"
+                                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                </div>
+                                                <div class="col-md-3 pl-0 bl">
+                                                    <table class="table map_side-table">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td scope="row"> <img src="img/location-on1.png" alt="">
+                                                                    THR Plan Report</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td scope="row"><img src="img/location-on-2.png" alt="">
+                                                                    HR Report</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td scope="row"><img src="img/location-on-3.png" alt="">
+                                                                    Vehicle Report</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td scope="row"><img src="img/location-on-4.png" alt="">
+                                                                    DI Upload Report</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                            aria-labelledby="nav-profile-tab">
+                                            <table>
+                                                <tr>
+                                                    <th>Company</th>
+                                                    <th>Contact</th>
+                                                    <th>Country</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>Alfreds Futterkiste</td>
+                                                    <td>Maria Anders</td>
+                                                    <td>Germany</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Centro comercial Moctezuma</td>
+                                                    <td>Francisco Chang</td>
+                                                    <td>Mexico</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ernst Handel</td>
+                                                    <td>Roland Mendel</td>
+                                                    <td>Austria</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Island Trading</td>
+                                                    <td>Helen Bennett</td>
+                                                    <td>UK</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Laughing Bacchus Winecellars</td>
+                                                    <td>Yoshi Tannamuri</td>
+                                                    <td>Canada</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Magazzini Alimentari Riuniti</td>
+                                                    <td>Giovanni Rovelli</td>
+                                                    <td>Italy</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="carousel_sec">
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-10">
+                                    <div class="owl-carousel owl-theme" id="myList">
+                                        <div class="item">
+                                            <div class="item_thum">
+                                                <img src="img/groundnut.png" alt="groundnut" width="100%"
+                                                    style="border-bottom:1px solid #ddd">
+                                            </div>
+                                            <div class="item_text">
+                                                <p>GROUND NUTS</p>
+                                                <span>TOTAL QTY REQUIRED AS PER DI IN KGS</span>
+                                                <h4>146664.38</h4>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="item_thum">
+                                                <img src="img/green-moong.png" alt="green-moong" width="100%"
+                                                    style="border-bottom:1px solid #ddd">
+                                            </div>
+                                            <div class="item_text">
+                                                <p>GREEN GRAM DAL</p>
+                                                <span>TOTAL QTY REQUIRED AS PER DI IN KGS </span>
+                                                <h4>875851.61</h4>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="item_thum">
+                                                <img src="img/fresh-soya.png" alt="fresh-soya" width="100%"
+                                                    style="border-bottom:1px solid #ddd">
+                                            </div>
+                                            <div class="item_text">
+                                                <p>(SOYABEAN) OIL</p>
+                                                <span>TOTAL QTY REQUIRED AS PER DI IN KGS </span>
+                                                <h4>729495.88</h4>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="item_thum">
+                                                <img src="img/images.png" alt="images" width="100%"
+                                                    style="border-bottom:1px solid #ddd">
+                                            </div>
+                                            <div class="item_text">
+                                                <p>WHEAT</p>
+                                                <span>TOTAL QTY REQUIRED AS PER DI IN KGS </span>
+                                                <h4>2749128.78</h4>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="item_thum">
+                                                <img src="img/sugar.png" alt="sugar" width="100%"
+                                                    style="border-bottom:1px solid #ddd">
+                                            </div>
+                                            <div class="item_text">
+                                                <p>SKIMMED MILK POWDER</p>
+                                                <span>TOTAL QTY REQUIRED AS PER DI IN KGS </span>
+                                                <h4>430694.45</h4>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="item_thum">
+                                                <img src="img/bengal-gram.png" alt="bengal-gram" width="100%"
+                                                    style="border-bottom:1px solid #ddd">
+                                            </div>
+                                            <div class="item_text">
+                                                <p>BANGAL GRAM</p>
+                                                <span>TOTAL QTY REQUIRED AS PER DI IN KGS </span>
+                                                <h4>875851.61</h4>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="item_thum">
+                                                <img src="img/kashmiri_Masala_Powder.png" alt="kashmiri_Masala_Powder"
+                                                    width="100%" style="border-bottom:1px solid #ddd">
+                                            </div>
+                                            <div class="item_text">
+                                                <p>SPICE MIX POWDER</p>
+                                                <span>TOTAL QTY REQUIRED AS PER DI IN KGS </span>
+                                                <h4>24197.91</h4>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="item_thum">
+                                                <img src="img/vitamin-mineral-premixes.png" alt="kashmiri_Masala_Powder"
+                                                    width="100%" style="border-bottom:1px solid #ddd">
+                                            </div>
+                                            <div class="item_text">
+                                                <p>VITAMIN AND MINERAL PREMIX</p>
+                                                <span>TOTAL QTY REQUIRED AS PER DI IN KGS </span>
+                                                <h4>67855.46</h4>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="item_thum">
+                                                <img src="img/sugar-g.png" alt="kashmiri_Masala_Powder" width="100%"
+                                                    style="border-bottom:1px solid #ddd">
+                                            </div>
+                                            <div class="item_text">
+                                                <p>SUGAR</p>
+                                                <span>TOTAL QTY REQUIRED AS PER DI IN KGS </span>
+                                                <h4>480974.85</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </section>
+                        <section class="carousel_cont">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="carousel_cont_box">
+                                        <h4>TOTAL QTY PROCURED IN KGS</h4>
+                                        <h1>1482801.23</h1>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="carousel_cont_box">
+                                        <h4>AVG. PURCHASE RATE ()</h4>
+                                        <h1>000</h1>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="carousel_cont_box">
+                                        <h4>TOTAL PURCHASE AMT ()</h4>
+                                        <h1>3074344.05</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="suppliers">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="box3">
+                                        <div class="box_veh">
+                                            <h6> <img src="img/table-head.png" alt="table-head.png"> TOTAL NO. OF
+                                                SUPPLIERS</h6>
+                                            <span class="badge badge-light">193.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="table_nth">
+                                        <table>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/Group1.png" alt="Group1"></td>
+                                                <td>WHEAT</td>
+                                                <td class="text-bold">20.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/Group2.png" alt="Group2"></td>
+                                                <td>BENGAL GRAM</td>
+                                                <td class="text-bold">24.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/Group3.png" alt="Group3"></td>
+                                                <td>GROUNDNUTS</td>
+                                                <td class="text-bold">21.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/Group4.png" alt="Group4"></td>
+                                                <td>SUGAR</td>
+                                                <td class="text-bold">24.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/Group5.png" alt="Group5"></td>
+                                                <td>GREEN GRAM DAAL</td>
+                                                <td class="text-bold">21.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/Group6.png" alt="Group6"></td>
+                                                <td>SPICE MIX POWDER</td>
+                                                <td class="text-bold">18.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/Group7.png" alt="Group7"></td>
+                                                <td>SKIMMED MILK POWDER</td>
+                                                <td class="text-bold">23.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/Group8.png" alt="Group8"></td>
+                                                <td>SOYABEAN OIL</td>
+                                                <td class="text-bold">25.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:6%;"><img src="img/Group9.png" alt="Group9"></td>
+                                                <td>VITAMIN AND MINERAL PREMIX</td>
+                                                <td class="text-bold">17.00</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="production_rep">
+                                        <!-- <div class="d-flex justify-content-between"> -->
+                                        <h6>PRODUCTION MIS REPORT</h6>
+                                        <!-- <div class="podu_check">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                                        id="exampleRadios1" value="option1" checked>
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        TARGET QTY
+                                                    </label>
+                                                </div>
+                                                <div class="form-check ml-3">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios"
+                                                        id="exampleRadios2" value="option2">
+                                                    <label class="form-check-label" for="exampleRadios2">
+                                                        AVERAGE
+                                                    </label>
+                                                </div>
+                                            </div> -->
+                                        <!-- </div> -->
+                                        <main>
+                                            <div class="chart-container" style="position: relative; height:47vh;">
+                                                <div id="bar-chart"></div>
+                                            </div>
+                                        </main>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="recipe_report">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="production_rep">
+                                        <h6>RECIPE REPORT</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="nabl_report">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="production_rep">
+                                        <h6>NABL REPORT</h6>
+                                        <main>
+                                            <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                                        </main>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="production_rep">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h6>RECIPE REPORT</h6>
+                                            <div class="recipe_btn">
+                                                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active btn_expected" id="pills-expected-tab"
+                                                            data-toggle="pill" href="#pills-expected" role="tab"
+                                                            aria-controls="pills-expected"
+                                                            aria-selected="true">EXPECTED</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link btn_deliverd" id="pills-deliverd-tab"
+                                                            data-toggle="pill" href="#pills-deliverd" role="tab"
+                                                            aria-controls="pills-deliverd"
+                                                            aria-selected="false">DELIVERED</a>
+                                                    </li>
+                                                </ul>
+                                                <!-- <span><a class="recipe_btn1" href="">EXPECTED</a></span>
+                                                <span><a class="recipe_btn2" href="">DELIVERED</a></span> -->
+                                            </div>
+                                        </div>
+                                        <div class="tab-content" id="pills-tabContent">
+                                            <div class="tab-pane fade show active" id="pills-expected" role="tabpanel"
+                                                aria-labelledby="pills-expected-tab">
+                                                <main>
+                                                    <div id="recipe-chart2"></div>
+                                                </main>
+                                            </div>
+                                            <div class="tab-pane fade" id="pills-deliverd" role="tabpanel"
+                                                aria-labelledby="pills-deliverd-tab">
+                                                <div id="chart_div1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="bill_report">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="production_rep">
+                                        <h6>BILL REPORT</h6>
+                                        <main>
+                                            <div class="chart-container">
+                                                <canvas id="mycanvas"></canvas>
+                                            </div>
+                                        </main>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <img src="img/Rectangle.png" alt="Rectangle" width="100%">
+                                </div>
+                            </div>
+                        </section>
+                        <!-- ................brijesh code end........................ -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="DemandModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Demand Creation Type</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <span class="text-dark">Upload Demand File</span> <input type="radio" name="A"
+                                    value="1" />
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="text-dark">Add New Demand</span> <input type="radio" name="A" value="2" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="CheckUploadOrNot()">Proceed</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="DemandModalMonthlyWise" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Demand Creation Monthly/Quaterly/Weakly</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <span class="text-dark">Monthly</span><input type="radio" name="Demand" value="1"
+                                    onclick="checkDemandMQW(this)" />
+                            </div>
+                            <div class="col-sm-4">
+                                <span class="text-dark">Quaterly</span><input type="radio" name="Demand" value="2"
+                                    onclick="checkDemandMQW(this)" />
+                            </div>
+                            <div class="col-sm-4">
+                                <span class="text-dark">Half Yearly</span><input type="radio" name="Demand" value="3"
+                                    onclick="checkDemandMQW(this)" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row" style="display:none" id="rowselectDateWise">
+                            <div class="col-sm-6">
+                                <span class="label text-dark">From Date:</span>
+                                <input type="text" class="input-magic date" required id="txtfromDate" />
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="label text-dark">To Date:</span>
+                                <input type="text" class="input-magic date" required id="txttoDate" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="ProceedbyMonthly()">Proceed</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function getCurrentMenu() {
+            var pagePathName = window.location.pathname;
+            var pagePathArray = pagePathName.split('/');
+            if (pagePathArray.length > 0) {
+                var menuName = pagePathArray[2];
+                if (menuName !== null || menuName !== '') {
+                    var page = menuName;
+                    $('ul#menu>li').each(function () {
+                        if (!$(this).hasClass("header")) {
+                            var urlMri = $(this).find('a').attr('href');
+                            var lastSlashValue = urlMri.lastIndexOf("/");
+                            var mriUrl = urlMri.substring(lastSlashValue + 1);
+                            if (mriUrl.toLowerCase() === page.toLowerCase()) {
+                                $(this).addClass("active");
+                            }
+                        }
+                    });
+                    $('ul#menu>li>ul>li').each(function () {
+                        if (!$(this).hasClass("header")) {
+                            var urlMri = $(this).find('a').attr('href');
+                            var lastSlashValue = urlMri.lastIndexOf("/");
+                            var mriUrl = urlMri.substring(lastSlashValue + 1);
+                            if (mriUrl.toLowerCase() === page.toLowerCase()) {
+                                $(this).parent().parent().addClass("active");
+                                $(this).parent().css("display", "block");
+                                $(this).addClass("active");
+                            }
+                        }
+                    });
+                }
+            }
+        }
+
+        function OpenModal() {
+
+            $('#DemandModal').modal('show')
+        }
+        function CheckUploadOrNot() {
+
+            if ($('input:radio:checked').length > 0) {
+                if ($('input[name="A"]:checked').val() == "1") {
+                    window.location.href = "/Masters/UploadExcelView";
+                }
+                else {
+                    window.location.href = "/Masters/AddDemand";
+                }
+            }
+            else {
+                alert("Please check Demand Type");
+                return
+            }
+        }
+    </script>
+
+
+    <!-- Required vendors -->
+
+    <script src="https://upsrlm.uplive.in/vendor/global/global.min.js"></script>
+    <script src="https://upsrlm.uplive.in/js/quixnav-init.js"></script>
+    <script src="https://upsrlm.uplive.in/js/custom.min.js"></script>
+    <!-- Vectormap -->
+    <script src="https://upsrlm.uplive.in/vendor/raphael/raphael.min.js"></script>
+    <script src="https://upsrlm.uplive.in/vendor/morris/morris.min.js"></script>
+    <script src="https://upsrlm.uplive.in/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="https://upsrlm.uplive.in/vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="https://upsrlm.uplive.in/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+    <!-- Counter Up -->
+
+    <script src="https://upsrlm.uplive.in/vendor/jqvmap/js/jquery.vmap.min.js"></script>
+    <script src="https://upsrlm.uplive.in/vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+    <script src="https://upsrlm.uplive.in/js/dashboard/dashboard-1.js"></script>
+
+    <script src="/Admin/assets/js/sweetalert/js/sweet-alert.min.js"></script>
+    <script src="/Admin/assets/js/sweetalert/js/ui/Custom.js"></script>
+    <script src="/Admin/assets/js/sweetalert/js/ui/dialogs.js"></script>
+    <script src="/Admin/assets/js/toastr/toastr.js"></script>
+    <script src="/DATEPICKER/datpikr.js"></script>
+
+    <script src="/lib/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="/DataTables/datatables.js"></script>
+
+    <script src="/DataTables/datatables.min.js"></script>
+    <script src="/Admin/assets/Select2/js/select2.full.js"></script>
+    <script src="/Admin/assets/Select2/js/select2.full.min.js"></script>
+    <script src="/Admin/assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script src="/js/ProjectJs/EncryptDecrypt.js"></script>
+    <script src="/js/ProjectJs/EncryptDecrypt.js"></script>
+    <script src="/js/ProjectJs/Common.js?v=GTB1qzuOogpWma9YbiGi4oc2DuwaVbhbI0MIbKI2Rp4"></script>
+
+    <script src="/js/ConvertToExcel/jquery.table2excel.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".js-select2").select2();
+            $(".js-select2-multi").select2();
+
+            $(".large").select2({
+                dropdownCssClass: "big-drop",
+            });
+        });
+    </script>
+
+    <!-- ........................brijesh start............................... -->
+
+    <script>
+        $('.owl-carousel').owlCarousel({
+            rtl: true,
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 5
+                }
+            }
+        })
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        "REPORTS UPLOADED",
+                        "ADVERSE REPORTS",
+                        "ACCEPTABLE REPORTS",
+                        "OTHER REPORTS"],
+                    datasets: [{
+                        backgroundColor: ['#ffc107', '#4caf50', '#f44336', '#00bcd4'],
+                        data: [7, 3, 3, 4],
+
+                    }]
+
+                },
+                options: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            });
+        })
+    </script>
+    <script>
+
+        $(document).ready(function () {
+            var ctx = document.getElementById('mycanvas').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        "BILLS REVIEWED",
+                        "BILLS APPROVED & FORWARDED",
+                        "BILL SETTLED",
+                        "BILL AMOUNT PAID"],
+                    datasets: [{
+                        backgroundColor: ['#ffeb3b', '#2196f3', '#ff5722', '#9c27b0'],
+                        data: [7, 3, 3, 4],
+                    }]
+                },
+                options: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            });
+        })
+    </script>
+
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script>
+        google.load("visualization", "1", { packages: ["corechart"] });
+        google.setOnLoadCallback(drawCharts);
+        function drawCharts() {
+            // actual bar chart data
+            var barData = google.visualization.arrayToDataTable([
+                ['Day', 'TARGET QTY', 'AVERAGE'],
+                ['SHIFT 1', 200, 100],
+                ['SHIFT 2', 400, 700],
+                ['QUANTITY', 100, 400],
+
+            ]);
+            // set bar chart options
+            var barOptions = {
+                focusTarget: 'category',
+                backgroundColor: 'transparent',
+                colors: ['#fdfd3b', '#1ea306'],
+                fontName: 'Open Sans',
+                chartArea: {
+                    left: 50,
+                    top: 50,
+                    width: '100%',
+                    height: '65%'
+                },
+                bar: {
+                    groupWidth: '30%'
+                },
+                hAxis: {
+                    textStyle: {
+                        fontSize: 11
+                    }
+                },
+                vAxis: {
+                    minValue: 0,
+                    maxValue: 1500,
+                    baselineColor: '#DDD',
+                    gridlines: {
+                        color: '#DDD',
+                        count: 6
+                    },
+                    textStyle: {
+                        fontSize: 11
+                    }
+                },
+                legend: {
+                    position: 'top',
+                    alignment: 'end',
+                    textStyle: {
+                        fontSize: 12
+                    }
+                },
+                animation: {
+                    duration: 1200,
+                    easing: 'out',
+                    startup: true
+                }
+            };
+            // draw bar chart twice so it animates
+            var barChart = new google.visualization.ColumnChart(document.getElementById('bar-chart'));
+            //barChart.draw(barZeroData, barOptions);
+            barChart.draw(barData, barOptions);
+        }
+    </script>
+    <script>
+        google.load("visualization", "1", { packages: ["corechart"] });
+        google.setOnLoadCallback(drawCharts);
+        function drawCharts() {
+            // actual bar chart data
+            var barData = google.visualization.arrayToDataTable([
+                ['Day', 'TARGET QTY', 'AVERAGE'],
+                ['ATTA BESAN HALWA', 200, 200],
+                ['ATTA BESAN BARFI PREMIX', 200, 200],
+                ['DALIY MOONG DAL KHICHADI', 200, 200],
+                ['ATTA BESAN BARFI PREMIX', 200, 200],
+                ['DALIY MOONG DAL KHICHADI', 200, 200],
+                ['ATTA BESAN BARFI PREMIX', 200, 200],
+                ['DALIY MOONG DAL KHICHADI', 200, 200],
+                ['ATTA BESAN HALWA', 200, 200],
+
+            ]);
+            // set bar chart options
+            var barOptions = {
+                focusTarget: 'category',
+                backgroundColor: 'transparent',
+                colors: ['#fdfd3b', '#1ea306'],
+                fontName: 'Open Sans',
+                chartArea: {
+                    left: 50,
+                    top: 50,
+                    width: '100%',
+                    height: '60%'
+                },
+                bar: {
+                    groupWidth: '30%'
+                },
+                hAxis: {
+                    textStyle: {
+                        fontSize: 11
+                    }
+                },
+                vAxis: {
+                    minValue: 0,
+                    maxValue: 300,
+                    baselineColor: '#DDD',
+                    gridlines: {
+                        color: '#DDD',
+                        count: 6
+                    },
+                    textStyle: {
+                        fontSize: 11
+                    }
+                },
+                legend: {
+                    position: 'top',
+                    alignment: 'start',
+                    textStyle: {
+                        fontSize: 12
+                    }
+                },
+                animation: {
+                    duration: 1200,
+                    easing: 'out',
+                    startup: true
+                }
+            };
+            // draw bar chart twice so it animates
+            var barChart = new google.visualization.ColumnChart(document.getElementById('recipe-chart'));
+            //barChart.draw(barZeroData, barOptions);
+            barChart.draw(barData, barOptions);
+        }
+    </script>
+    <script>
+        google.load("visualization", "1", { packages: ["corechart"] });
+        google.setOnLoadCallback(drawCharts);
+        function drawCharts() {
+            // actual bar chart data
+            var barData = google.visualization.arrayToDataTable([
+                ['Day', 'TARGET QTY', 'AVERAGE'],
+                ['ATTA BESAN HALWA', 750000, 200000],
+                ['ATTA BESAN BARFI PREMIX', 450000, 200000],
+                ['DALIY MOONG DAL KHICHADI', 650000, 200000],
+                ['ATTA BESAN BARFI PREMIX', 550000, 290000],
+
+            ]);
+            // set bar chart options
+            var barOptions = {
+                focusTarget: 'category',
+                backgroundColor: 'transparent',
+                colors: ['#fdfd3b', '#1ea306'],
+                fontName: 'Open Sans',
+                chartArea: {
+                    left: 50,
+                    top: 50,
+                    bottom: 30,
+                    width: '100%',
+                    height: '100%',
+                },
+                bar: {
+                    groupWidth: '30%'
+                },
+                hAxis: {
+                    textStyle: {
+                        fontSize: 11
+                    }
+                },
+                vAxis: {
+                    minValue: 0,
+                    maxValue: 1000000,
+                    baselineColor: '#DDD',
+                    gridlines: {
+                        color: '#DDD',
+                        count: 5
+                    },
+                    textStyle: {
+                        fontSize: 11
+                    }
+                },
+                legend: {
+                    position: 'top',
+                    alignment: 'end',
+                    textStyle: {
+                        fontSize: 12
+                    }
+                },
+                animation: {
+                    duration: 1200,
+                    easing: 'out',
+                    startup: true
+                }
+            };
+            // draw bar chart twice so it animates
+            var barChart = new google.visualization.ColumnChart(document.getElementById('recipe-chart2'));
+            //barChart.draw(barZeroData, barOptions);
+            barChart.draw(barData, barOptions);
+        }
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('.item').click(function () {
+                $('.item').removeClass("kkk");
+                $(this).addClass("kkk");
+            });
+        });
+    </script>
+
+    <!-- ........................brijesh end............................... -->
+
+</body>
+
+</html>
